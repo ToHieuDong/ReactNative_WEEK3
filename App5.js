@@ -1,158 +1,66 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View ,Text, Pressable,TextInput, Linking,Image} from 'react-native';
-import { Button } from 'react-native-web';
+import { StyleSheet, Text, View, Image, Button, TextInput} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
 export default function App5() {  
 const navigation = useNavigation();
-return(
-        <View style={styles.container}>
-            <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require('/assets/icon.png')} />
-        </View>
-        <TextInput style={styles.text} placeholder="Please input user name" />    
-            <TextInput style={styles.text} placeholder="Please input password" />
-            
-                <Pressable style={styles.button} onPress={login}>
-            <Text style={styles.buttonText}>LOGIN</Text>
-        </Pressable>      
+return (
+    <View style={styles.container} >
+      <View style={{ flex: 1 }}></View>
+      <Image style={{ height: 100, width: 100, alignSelf: 'center' }} source={{ uri: 'https://i.pinimg.com/564x/86/dc/fe/86dcfe97b6322ea1eade0db5160fc440.jpg' }}></Image>
+      <View style={{ flex: 1 }}></View>
 
-        <View style={styles.textContainer}>
-            <Text style={styles.textLeft} onPress={handleRegister}>Register</Text>
-            <Text style={styles.textRight} onPress={handleForgetPS}>Forget Password?</Text>
-        </View>
-        <View style={styles.containerLoginMethod}>
-        <View style={styles.line} />
-        <Text style={styles.textMethodLogin}>Other Login Method</Text>
-        <View style={styles.line} />
-        </View>
-        <View style={styles.containerImage}>
-        <Pressable onPress={register}><Image  style={styles.logoFooter} source={require('/assets/icon.png')} /></Pressable>
-        <Pressable onPress={gmailReg}> <Image  style={styles.logoFooter} source={require('/assets/icon.png')} /> </Pressable>
-        <Pressable onPress = {fbReg}> <Image onPress = {fbReg} style={styles.logoFooter} source={require('/assets/icon.png')} /></Pressable>
+      <View style={{ flex: 1.5, flexDirection: 'row',borderBottomWidth: 2, borderColor: '#black' }}>
+        <Image style={{ marginLeft: 10, height: 30, width: 30, alignSelf: 'center' }} source={{ uri: 'https://i.pinimg.com/564x/d9/7b/bb/d97bbb08017ac2309307f0822e63d082.jpg' }}></Image>
+        <TextInput
+          style={{ flex: 1, padding: 9 }}
+          placeholder='Please input user name'></TextInput>
+      </View>  
+      <View style={{ flex: 0.6 }}></View>
+      <View style={{ flex: 1.5, flexDirection: 'row', borderBottomWidth: 2, borderColor: '#black' }}>
+        <Image style={{ marginLeft: 10, height: 30, width: 30, alignSelf: 'center' }} source={{ uri: 'https://i.pinimg.com/564x/94/e0/e7/94e0e76b7e88d2002e813d819158994c.jpg' }}></Image>
+        <TextInput
+          style={{ flex: 1, padding: 9}}
+          placeholder='Please input password'></TextInput>
+      </View>       
+      
+      <View style={{ flex: 1 }}></View>
+      <Button 
+        style={{ flex: 1}}
+        color='blue'
+        title='LOGIN'
+      >
+      </Button>
+      <View style={{ flex: 0.4 }}></View>
+      <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+        <Text style={{fontWeight: 'bold', fontSize: 15 }}>Register</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Forgot Password</Text>
+      </View>
+      <View style={{ flex: 0.7 }}></View>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between' }}>
+        <hr style={{flex:1, color:'black'}}></hr>
+        <Text style={{ fontWeight: 'bold', fontSize: 15 }}> Orther Login Methods </Text>
+        <hr style={{ flex: 1 }}></hr>
+      </View>
+      <View style={{ flex: 3, flexDirection: 'row', justifyContent: 'space-around' }}>
+        <Image style={{ height: 80, width: 80, alignSelf: 'center' }} source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/OOjs_UI_icon_userAvatar-progressive.svg/1200px-OOjs_UI_icon_userAvatar-progressive.svg.png' }}></Image>
+        <Image style={{ height: 80, width: 80, alignSelf: 'center' }} source={{ uri: 'https://cdn-icons-png.flaticon.com/512/159/159599.png' }}></Image>
+        <Image style={{ height: 80, width: 80, alignSelf: 'center' }} source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Facebook_icon.svg/2048px-Facebook_icon.svg.png' }}></Image>
+      </View>
+      <View style={{ flex: 1 }}></View>
+      
+      
+    </View>
+  );
+}
 
-        </View>
-
-        </View>
-   );
- }
- const styles = StyleSheet.create({
-    container: {
-        backgroundColor: "white",
-        height: "100%",
-    },
-    logoContainer: {
-        alignItems: "center",
-        marginTop: 20,
-      },
-      logo: {
-        width: 250,
-        height: 150,
-      },
-      iconLock: {
-        position: "absolute",
-        marginLeft: 40,
-        marginTop: 310,
-      },
-      iconUser: {
-        position: "absolute",
-        marginLeft: 40,
-        marginTop: 210,
-      },
-      logoFooter:{
-        width: 80,
-        height: 70,
-        marginTop: 20,
-      },
-
-    containerImage:{
-        marginTop: 60,
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-      },
-  text:{
-    width: "86%",
-    height: 60,
-    borderColor: "black",
-    borderBottomWidth: 0.5,
-    marginTop: 30,
-    marginBottom: 10,
-    paddingLeft: 60,
-    marginLeft: 30,
-    fontSize: 20,
-    fontWeight: "100"
-  },
-  eyeIcon: {
-    position: "absolute",
-    marginTop: 150,
-    marginLeft: "85%",
-  },
- 
-  textContainer: {
-    marginTop: 20,
-  },
- 
-  button: {
-    marginTop: 50,
-    marginLeft: 30,
-    width: "87%",
-    height: 60,
-    backgroundColor: "#386FFC",
-    borderRadius: 10,
-  },
-  buttonText: {
-    textAlign: "center",
-    marginTop: 10,
-    fontSize: 20,
-    color: "#fff",
-    fontWeight: "bold",
-  },
-  textLeft: {
-    fontFamily: "Roboto",
-    marginTop: 0,
-    width: 120,
-    height: 50,
-  
-    fontSize: 18, // Đặt kích thước font chữ
-    fontWeight: 'bold', // Đặt độ đậm của font chữ
-    lineHeight: "23px",
-    letterSpacing: "0em",
-    textAlign: "center",
-    justifyContent: "center",
-  },
-  textRight: {
-    fontFamily: "Roboto",
-    marginTop: -50,
-    width: 300,
-    height: 50,
-    marginLeft: 150,
-    fontSize: 18, // Đặt kích thước font chữ
-    fontWeight: 'bold', // Đặt độ đậm của font chữ
-    lineHeight: "23px",
-    letterSpacing: "0em",
-    textAlign: "center",
-    justifyContent: "center",
-  },
-  containerLoginMethod: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  line: {
+const styles = StyleSheet.create({
+  container: {
     flex: 1,
-    height: 1,
-    backgroundColor: 'black',
-    margin: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
-  textMethodLogin: {
-    fontWeight: 'bold',
-    fontSize: 18,
-  },
-  containerImage:{
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  }
- });
+  
+
+});
