@@ -22,7 +22,7 @@ return (
             <TextInput placeholder="Email" style={styles.emailInput} />
         </View>
         <View style={styles.container4}>
-        <Button title="NEXT" color="#E3C000"  onPress={() => navigation.navigate('App2')} />
+        <Button title="NEXT" color="#E3C000"  onPress={() => navigation.navigate('App1')} />
         
         </View>
 
